@@ -7,8 +7,8 @@ int k = 0;
 
 
 int main(){
-    std::cout<<"Hellow world";
-    return 0;
+    start();
+       
 }
 
 
@@ -16,6 +16,10 @@ void start()
 {
     system("color 0B");
     std::cout<<"\n\n\n\n\n\n\n\n\n";
+    std::cout<<"\t\t\t\t\t--------------------------------------------------\n";
+    std::cout<<"\t\t\t\t\t--------------------------------------------------\n";
+    std::cout<<"\t\t\t\t\t\t\tPHONE BOOK APPLICATION\n";
+    std::cout<<"\t\t\t\t\t--------------------------------------------------\n\n";
     std::cout<<"\t\t\t\t\tLoading ";
     char x = 219;
     for(int i = 0; i < 35; i++){
