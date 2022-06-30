@@ -11,68 +11,146 @@ int main()
     std::string name[100];
     std::string no[100];
     int check = 0;
+    int totalContacts = 0;
     check = menu();
-    do {
-        //Add contact
-        if(check == 1)
+    do
+    {
+        // Add contact
+        if (check == 1)
         {
-            std::cout<<"\t\t\t\t\t\t Name : ";
-            std::cin>>name[k];
-            std::cout<<"\t\t\t\t\t\t Phone NO. : ";
-            std::cin>>no[k];
+            std::cout << "\t\t\t\t\t\t Name : ";
+            std::cin >> name[k];
+            std::cout << "\t\t\t\t\t\t Phone NO. : ";
+            std::cin >> no[k];
             k++;
+            totalContacts++;
         }
-        //display contact
-        else if(check == 2)
+        // display contact
+        else if (check == 2)
         {
-            for(int i = 0; i < 100; i++)
+            int check2 = 0;
+            for (int i = 0; i < 100; i++)
             {
-                if(name[i] != "\0")
-                std::cout<<"\t\t\t\t\t\t Name : "<<name[i]<<"       Phone : "<<no[i]<<"\n";
+                if (name[i] != "\0")
+                    std::cout << "\t\t\t\t\t\t Name : " << name[i] << "       Phone : " << no[i] << "\n";
+                check2++;
+            }
+            if (check2 == 0)
+            {
+                std::cout << "\t\t\t\t\t\tYour contact list is empty \n";
             }
         }
-        //search by number
-        else if(check == 3)
+        // search by number
+        else if (check == 3)
         {
             std::string temp;
-            std::cout<<"\t\t\t\t\tNumber: ";
-            std::cin>>temp;
-            for(int i = 0; i < 100; i++)
+            std::cout << "\t\t\t\t\tNumber: ";
+            std::cin >> temp;
+            int check2 = 0;
+            for (int i = 0; i < 100; i++)
             {
-                if(temp == no[i])
+                if (temp == no[i])
                 {
-                    std::cout<<"\t\t\t\t\tNumber is Found\n: ";
-                    std::cout<<"\t\t\t\t\tNumber: "<<name[i]<<"       Phone : "<<no[i];
+                    std::cout << "\t\t\t\t\tNumber is Found\n: ";
+                    std::cout << "\t\t\t\t\tNumber: " << name[i] << "       Phone : " << no[i];
+                    check2++;
                 }
             }
+            if (check2 == 0)
+            {
+                std::cout << "\t\t\t\t\tThis name is not Found in your contact list\n";
+            }
         }
-        //search by name
-        else if(check == 4)
+        // search by name
+        else if (check == 4)
         {
-            
+            std::string temp;
+            std::cout << "\t\t\t\t\tName : ";
+            std::cin >> temp;
+            int check2 = 0;
+            for (int i = 0; i < 100; i++)
+            {
+                if (temp == name[i])
+                {
+                    std::cout << "\t\t\t\t\tName is Found\n: ";
+                    std::cout << "\t\t\t\t\tName : " << name[i] << "       Phone : " << no[i];
+                    check2++;
+                }
+            }
+            if (check2 == 0)
+            {
+                std::cout << "\t\t\t\t\tThis name is not Found in your contact list\n";
+            }
         }
-        //update
-        else if(check == 5)
+        // update
+        else if (check == 5)
         {
-            
+            std::string temp, temp2, temp3;
+            std::cout << "\t\t\t\t\tName : ";
+            std::cin >> temp;
+            int check2 = 0;
+            for (int i = 0; i < 100; i++)
+            {
+                if (temp == name[i])
+                {
+                    std::cout << "\t\t\t\t\tNew Name : ";
+                    std::cin >> temp2;
+                    std::cout << "\t\t\t\t\tNew number : ";
+                    std::cin >> temp3;
+                    name[i] = temp2;
+                    no[i] = temp3;
+                    std::cout << "\t\t\t\t\tUpdated successfully \n";
+                    check2++;
+                }
+            }
+            if (check2 == 0)
+            {
+                std::cout << "\t\t\t\t\tThis name is not Found in your contact list\n";
+            }
         }
-        //delete
-        else if(check == 6)
+        // delete
+        else if (check == 6)
         {
-            
+            std::string temp;
+            std::cout << "\t\t\t\t\tFor Delete Enter name : ";
+            std::cin >> temp;
+            int check2 = 0;
+            for (int i = 0; i < 100; i++)
+            {
+                if (temp == name[i])
+                {
+                    std::cout << "\t\t\t\t\tDeleted successfully\n: ";
+                    std::cout << "\t\t\t\t\tName : " << name[i] << "       Phone : " << no[i];
+                    name[i] = "\0";
+                    no[i] = "\0";
+                    check2++;
+                    totalContacts--;
+                }
+            }
+            if (check2 == 0)
+            {
+                std::cout << "\t\t\t\t\tThis name is not Found in your contact list\n";
+            }
         }
-        //delete all
-        else if(check == 7)
+        // delete all
+        else if (check == 7)
         {
-            
+            std::cout << "\t\t\t\t\tAll Deleted successfully\n: ";
+            for (int i = 0; i < k; i++)
+            {
+                name[i] = "\0";
+                no[i] = "\0";
+            }
+            k = 0;
+            totalContacts = 0;
         }
-        //Display no. of contact
-        else if(check == 8)
+        // Display no. of contact
+        else if (check == 8)
         {
-            
+            std::cout << "\t\t\t\t\t\t\tTotal numbers of contact list is : " << totalContacts;
         }
         check = menu();
-    }
+    } while (check != 9);
 }
 int menu()
 {
@@ -94,8 +172,10 @@ int menu()
     std::cout << "\t\t\t\t\t\t|          [9]Exit                           |\n";
     std::cout << "\t\t\t\t\t\t----------------------------------------------\n";
     int a;
-    std::cout << "Enter Your Choice";
+    std::cout << "Enter Your Choice: ";
     std::cin >> a;
+    system("cls");
+    return a;
 }
 
 void start()
