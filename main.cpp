@@ -10,8 +10,69 @@ int main()
     start();
     std::string name[100];
     std::string no[100];
-    int check;
-    menu();
+    int check = 0;
+    check = menu();
+    do {
+        //Add contact
+        if(check == 1)
+        {
+            std::cout<<"\t\t\t\t\t\t Name : ";
+            std::cin>>name[k];
+            std::cout<<"\t\t\t\t\t\t Phone NO. : ";
+            std::cin>>no[k];
+            k++;
+        }
+        //display contact
+        else if(check == 2)
+        {
+            for(int i = 0; i < 100; i++)
+            {
+                if(name[i] != "\0")
+                std::cout<<"\t\t\t\t\t\t Name : "<<name[i]<<"       Phone : "<<no[i]<<"\n";
+            }
+        }
+        //search by number
+        else if(check == 3)
+        {
+            std::string temp;
+            std::cout<<"\t\t\t\t\tNumber: ";
+            std::cin>>temp;
+            for(int i = 0; i < 100; i++)
+            {
+                if(temp == no[i])
+                {
+                    std::cout<<"\t\t\t\t\tNumber is Found\n: ";
+                    std::cout<<"\t\t\t\t\tNumber: "<<name[i]<<"       Phone : "<<no[i];
+                }
+            }
+        }
+        //search by name
+        else if(check == 4)
+        {
+            
+        }
+        //update
+        else if(check == 5)
+        {
+            
+        }
+        //delete
+        else if(check == 6)
+        {
+            
+        }
+        //delete all
+        else if(check == 7)
+        {
+            
+        }
+        //Display no. of contact
+        else if(check == 8)
+        {
+            
+        }
+        check = menu();
+    }
 }
 int menu()
 {
@@ -32,6 +93,9 @@ int menu()
     std::cout << "\t\t\t\t\t\t----------------------------------------------\n";
     std::cout << "\t\t\t\t\t\t|          [9]Exit                           |\n";
     std::cout << "\t\t\t\t\t\t----------------------------------------------\n";
+    int a;
+    std::cout << "Enter Your Choice";
+    std::cin >> a;
 }
 
 void start()
